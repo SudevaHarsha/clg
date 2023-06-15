@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Health and Hygiene Resources</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Header styles */
+    /* Header styles */
+    header {
+        background-color: #333;
+        padding: 10px;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: static;
+    }
+    .left-section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+    }
+    span{
+        font-size: medium;
+        font-weight: 200;
+    }
+    .logo {
+        font-size: 24px;
+    }
+    
+    .search-bar {
+        position: relative;
+        margin-right: 20px;
+      }
+      
+      .search-bar input[type="text"] {
+        width: 100%;
+        padding: 5px;
+        border: none;
+        padding-left: 25px; /* Adjust the padding to make space for the icon */
+      }
+      
+      .search-bar i {
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        color: #ccc;
+      }      
+    
+    .navigation ul {
+        list-style: none;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-end; /* Align the navigation elements to the right */
+    }
+    
+    .navigation li {
+        margin-right: 10px;
+    }
+    
+    .navigation a {
+        color: #fff;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        transition: color 0.3s, background-color 0.3s;
+        margin-right:20px ;
+      }
+      
+      .navigation a::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+      }
+      
+      .navigation a:hover {
+        color: #ffcc00;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      .navigation a:hover::before {
+        transform: scaleX(1);
+      }
+      
+  
+
+    /* Hero section styles */
+    .hero {
+      background-image: url('./health-and-hygiene-n.jpg');
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 50px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero h1 {
+      color: #fff;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero-button {
+      background-color: #fff;
+      color: #333;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    /* Main content styles */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .main-content h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .article {
+      margin-bottom: 30px;
+      max-width: 30%;
+    }
+    
+    .a-flex{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+    }
+
+    .article img {
+      max-width: 30%;
+      margin-bottom: 10px;
+      height: 30%;
+    }
+
+    .article img:hover{
+      transform: scale(2);
+      cursor: pointer;
+    }
+
+    .article h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .article p {
+      font-size: 16px;
+    }
+
+    .read-more {
+      display: inline-block;
+      background-color: #333;
+      color: #fff;
+      padding: 5px 10px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .footer-center {
+      text-align: center;
+    }
+    
+    .footer p {
+      margin-bottom: 5px;
+    }
+    
+    .footer-social {
+      position: absolute;
+      right: 120px;
+      bottom: 20px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    
+    .footer-social a {
+      margin-left: 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+    
+    .footer-social a:first-child {
+      margin-left: 0;
+    }
+    
+      
+     
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    
+      .modal-content {
+        background-color: #fff;
+        width: 80%;
+        max-width: 800px;
+        margin: 100px auto;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+      }
+    
+      .close-modal {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .content-hide{
+        display: none;
+      }
+      .video-section {
+        background-color: #f2f2f2;
+        padding: 40px;
+        text-align: center;
+      }
+    
+      .video-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 20px;
+        margin-top: 20px;
+      }
+    
+      .video-card {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+    
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio (change as per your video aspect ratio) */
+        height: 0;
+      }
+    
+      .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    
+      .video-info {
+        padding: 20px;
+      }
+    
+      .video-info h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+    
+      .video-info p {
+        font-size: 14px;
+        color: #666;
+      }
+      .community-service-section {
+        background-color: #f7f7f7;
+        padding: 50px 0;
+      }
+    
+      .container {
+        max-width: 1200px;
+        margin: 0 100px;
+      }
+    
+      .project-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+    
+      .project-description {
+        margin-bottom: 40px;
+      }
+      .project-description h3 {
+        text-align: center;
+      }
+      
+      .container h3 {
+        text-align: center;
+      }
+      .container h2 {
+        text-align: center;
+      }
+      .project-description p {
+        margin-bottom: 20px;
+      }
+    
+      .achievements-list {
+        list-style-type: none;
+        padding-left: 20px;
+      }
+      
+      .achievements-list li:before {
+        content: "\2022";
+        color: #333;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+    
+      .achievements-list li {
+        margin-bottom: 10px;
+      }
+
+      .para{
+        margin-left:100px;
+      }
+      .grid-details {
+        display: grid;
+        grid-template-columns: 0.5fr 1fr;
+        grid-gap: 20px;
+      }
+      .grid-details h3{
+        text-align: left;
+        margin-left: 100px;
+      }
+  </style>
+</head>
+<body>
+    <header>
+        <div class="left-section">
+          <div class="logo">Health & Hygiene</div>
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search...">
+          </div>
+        </div>
+        <div class="right-section">
+          <nav class="navigation">
+            <ul>
+              <li><a href="#Home">Home</a></li>
+              <li><a href="#Articles">Articles</a></li>
+              <li><a href="#Videos">Videos</a></li>
+              <li><a href="#About Us">About Us</a></li>
+              <!-- <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li> -->
+            </ul>
+          </nav>
+        </div>
+      </header>
+      
+  <section class="hero" id="Home">
+    <div class="hero-content">
+      <h1>Promoting Health and Hygiene for All</h1>
+      <p class="content">Join us in creating a healthier and cleaner community.</p>
+      <a href="#" class="hero-button">Learn More</a>
+    </div>
+  </section>
+  <main class="main-content" >
+    <h2 id="Articles">Latest Articles</h2>
+    <div class="a-flex">
+    <div class="article">
+        <img src="./e9e038df-2d20-4a96-b5be-0f98503eb212athposter.jpg" alt="Article 1">
+        <h3>Maintaining Good Health and Hygiene: <span class="bold">Essential Practices for a Better Life</span></h3>
+        <p>Health and hygiene play vital roles in our overall well-being. They are interconnected aspects that influence our physical, mental, and social states. By adopting and maintaining good health and hygiene practices, we can significantly improve our quality of life and reduce the risk of various diseases and infections. In this article, we will explore essential practices that promote health and hygiene, empowering you to lead a healthier and happier life.</p>
+        <p class="content-hide">
+            1.Regular Handwashing: One of the most fundamental practices for maintaining good health and hygiene is regular handwashing. Our hands come into contact with countless surfaces throughout the day, accumulating germs and bacteria. By washing our hands frequently with soap and water, especially before eating or preparing food, after using the restroom, or after coughing or sneezing, we can prevent the spread of harmful pathogens and reduce the risk of infections such as colds, flu, and gastrointestinal illnesses.
+            <br />
+            2.Proper Dental Care: Oral health is an integral part of overall health. Practicing good dental hygiene helps prevent dental caries, gum diseases, and bad breath. Brush your teeth at least twice a day with fluoride toothpaste, floss daily to remove plaque between the teeth, and visit your dentist regularly for check-ups and cleanings. Maintaining proper oral hygiene can also contribute to better cardiovascular health and reduce the risk of certain medical conditions.
+            <br />
+            3.Regular Physical Activity: Engaging in regular physical activity offers numerous health benefits. Exercise helps in maintaining a healthy weight, strengthening muscles and bones, improving cardiovascular health, and enhancing overall mood and mental well-being. Aim for at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous-intensity aerobic activity per week. Additionally, incorporate strength training exercises to improve muscle strength and flexibility.
+            <br />
+            4.Adequate Sleep: Quality sleep is crucial for our overall health and well-being. Lack of sleep can lead to fatigue, impaired cognitive function, weakened immune system, and increased risk of chronic conditions such as obesity, diabetes, and cardiovascular diseases. Aim for 7-9 hours of uninterrupted sleep every night, establish a regular sleep schedule, and create a conducive sleep environment by keeping the bedroom dark, quiet, and comfortable.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+      
+      <div class="article">
+        <img src="./th (1).jpeg" alt="Article 2">
+        <h3>Preventing Disease:<span class="bold"> Strategies for a Healthier Tomorrow</span></h3>
+        <p>Prevention is the cornerstone of a healthier future. By immunizing, maintaining a healthy diet, engaging in regular physical activity, avoiding tobacco and excessive alcohol consumption, undergoing regular health screenings, managing stress, and practicing safe behaviors, we can significantly reduce the risk of various diseases.</p>
+        <p class="content-hide">1.Immunizations: Vaccinations are one of the most powerful tools for disease prevention. They protect against numerous infectious diseases, including measles, polio, influenza, hepatitis, and more. Ensure that you and your family are up to date with recommended immunizations according to the guidelines provided by healthcare professionals and public health authorities. 
+            2.Healthy Eating Habits: A nutritious diet plays a crucial role in preventing chronic diseases such as obesity, diabetes, heart disease, and certain types of cancer. Emphasize a diet rich in fruits, vegetables, whole grains, lean proteins, and healthy fats. Limit the consumption of processed foods, sugary snacks, and beverages high in added sugars. Maintain portion control and strive for a well-balanced and varied diet. Remember to stay hydrated by drinking an adequate amount of water throughout the day.
+            <br />
+            3.Regular Physical Activity: Engaging in regular physical activity is vital for preventing various diseases and promoting overall well-being. Aim for at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous-intensity aerobic activity per week. Additionally, incorporate strength training exercises to enhance muscle strength and flexibility. Regular exercise helps maintain a healthy weight, strengthens the cardiovascular system, improves mental health, and reduces the risk of chronic conditions such as heart disease, diabetes, and certain types of cancer.
+            <br />
+            4.Tobacco and Alcohol Avoidance: Avoiding tobacco in all forms is essential for preventing a range of diseases, including lung cancer, heart disease, stroke, and respiratory illnesses. If you smoke, seek support and resources to quit. 
+            <br />
+            5.Regular Health Screenings:  Routine health screenings can detect diseases in their early stages when treatment options are often more effective. Regular check-ups and screenings for conditions such as high blood pressure, cholesterol levels, diabetes, breast cancer, cervical cancer, colorectal cancer, and prostate cancer (based on gender and age) are important preventive measures. 
+            </p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+      <div class="article">
+        <img src="./health-care-nutrition.jpg" alt="Article 2">
+        <h3>Nourishing Your Body: <span class="bold">The Power of Nutrition for Improved Health</span></h3>
+        <p>Nutrition plays a pivotal role in our health and well-being. By embracing a balanced diet, prioritizing fruits and vegetables, choosing whole grains, opting for lean proteins, including healthy fats, and staying hydrated, we can nourish our bodies and reap the benefits of improved health. </p>
+        <p class="content-hide">1.Embrace a Balanced Diet:
+            A balanced diet is the foundation of good nutrition. It involves consuming a variety of foods from different food groups to ensure an adequate intake of essential nutrients. Incorporate fruits, vegetables, whole grains, lean proteins, and healthy fats into your meals. These foods provide vitamins, minerals, fiber, and antioxidants necessary for the proper functioning of our bodies. 
+            2.Prioritize Fruits and Vegetables:
+            Fruits and vegetables are nutritional powerhouses that offer a wide range of health benefits. They are rich in vitamins, minerals, antioxidants, and fiber, which support digestion, boost the immune system, and reduce the risk of chronic diseases such as heart disease, cancer, and obesity. Aim to incorporate a variety of colorful fruits and vegetables into your daily meals, and consider fresh, frozen, or even canned etc.
+            <br />
+            3.Choose Whole Grains:
+            Whole grains are an excellent source of complex carbohydrates, fiber, vitamins, and minerals. Unlike refined grains, such as white flour and white rice, whole grains retain their nutrient-rich bran and germ layers. 
+            <br />
+            5.Include Healthy Fats:
+            Not all fats are created equal. Healthy fats, such as monounsaturated and polyunsaturated fats, are essential for our bodies and can contribute to heart health when consumed in moderation. Sources of healthy fats include avocados, nuts, seeds, olive oil, and fatty fish like salmon and tuna. Limit the intake of saturated and trans fats found in processed foods and fried items, as they can increase the risk of heart disease.
+            <br />
+            6.Hydration is Key:
+            Proper hydration is often overlooked but is crucial for overall health. Water helps regulate body temperature, aids in digestion, transports nutrients, and removes waste from the body. Aim to drink an adequate amount of water throughout the day and limit the consumption of sugary beverages and excessive caffeine. </p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </div>
+      
+      <!-- Add the following HTML for the modal -->
+      <div class="modal">
+        <div class="modal-content">
+          <h3 class="modal-title">Full Article</h3>
+          <div class="modal-article-content">
+            <!-- The full article content will be dynamically inserted here -->
+          </div>
+          <button class="close-modal">Close</button>
+        </div>
+      </div>
+
+      <div class="video-section" id="Videos">
+        <h2>Videos</h2>
+        <div class="video-container">
+          <div class="video-card">
+            <div class="video-wrapper">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/iWwOAi3lvSg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+              <h3>Nutrition</h3>
+              <p>explanation about nutrition and balanced diet</p>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-wrapper">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/jQ2e0KH5WrI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+              <h3>Health and Hygiene</h3>
+              <p>about health and importance of hygiene in maintaining good health</p>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-wrapper">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/k7DGeWlKu0Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+              <h3>Vaccination</h3>
+              <p>vaccination and its uses to children</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <section class="community-service-section">
+        <div class="container">
+          <h2>Our Community Service Project</h2>
+          <div class="project-details">
+            <div class="project-image">
+              <img src="project-image.jpg" alt="Community Service Project">
+            </div>
+            <div class="project-description">
+              <p>Week 1.   SURVEY ON HEALTH AND HYGEINE</p>
+              <p>Week 2.  CONDUCTED AWARNESS ACTIVITY ON ORAL HEALTH AND DENTAL HYGEINE</p>
+              <p>Week 3. ACTIVITY ON THE ROLE OF SANITIZATION AND HYGENIC SURROUNDINGS</p>
+              <p>Week 4. NUTRITION AND BALANCED DIET</p>
+              <p>Week 5.  PROPAGATION OF VARIOUS DISEASES</p>
+            </div>
+            <h3>ABSTRACT</h3>
+            <P>Visited the few places in  Nellore and conducted the survey in order to know the awareness in people about health and hygine i.e knowing the minimum knowledge in people about the health and hygenic envinorment .
+                As mouth is the basic and first part in maintaining good health as various diseases start from our mouth so I spread awareness on dental health and oral hygine .
+                The hygenic envinorment and surroundings plays a key role in leading a healthy life , So I stressed the role of sanitization and how to keep the surroundings clean.	
+                Nutrition supplies all required vitamins and minerals in an perfect amount to our body , so I conducted an activity in explaining the nutririon and balanced diet.
+                I conducted awareness activity in explaining the propagation of various types of diseases and identifying the various sources of propagation and stopping them.
+                </P>
+          </div>
+          <h3>Our Achievements</h3>
+          <ul class="achievements-list">
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+            <li>Donec condimentum massa id ultrices accumsan.</li>
+            <li>Suspendisse potenti. Integer pellentesque euismod orci, nec aliquam mauris interdum a.</li>
+            <li>Sed consectetur vestibulum justo ut dignissim.</li>
+            <li>Duis lobortis tellus eu varius tincidunt.</li>
+          </ul>
+        </div>
+      </section> -->
+
+      <section class="community-service-section" id="About Us">
+        <div class="container">
+          <h2>Our Community Service Project</h2>
+          <div class="project-details">
+            <div class="project-image">
+              <img src="project-image.jpg" alt="Community Service Project">
+            </div>
+            <div class="project-description">
+                <p>Week 1.   SURVEY ON HEALTH AND HYGEINE</p>
+                <p>Week 2.  CONDUCTED AWARNESS ACTIVITY ON ORAL HEALTH AND DENTAL HYGEINE</p>
+                <p>Week 3. ACTIVITY ON THE ROLE OF SANITIZATION AND HYGENIC SURROUNDINGS</p>
+                <p>Week 4. NUTRITION AND BALANCED DIET</p>
+                <p>Week 5.  PROPAGATION OF VARIOUS DISEASES</p>
+                <h3>ABSTRACT</h3>
+            <P><span class="para">Visited </span> the few places in  Nellore and conducted the survey in order to know the awareness in people about health and hygine i.e knowing the minimum knowledge in people about the health and hygenic envinorment .
+                As mouth is the basic and first part in maintaining good health as various diseases start from our mouth so I spread awareness on dental health and oral hygine .
+                The hygenic envinorment and surroundings plays a key role in leading a healthy life , So I stressed the role of sanitization and how to keep the surroundings clean.	
+                Nutrition supplies all required vitamins and minerals in an perfect amount to our body , so I conducted an activity in explaining the nutririon and balanced diet.
+                I conducted awareness activity in explaining the propagation of various types of diseases and identifying the various sources of propagation and stopping them.
+                </P>
+            </div>
+          </div>
+          <div class="grid-details">
+            <h3>Our Achievements</h3>
+            <ul class="achievements-list">
+                <li>We educated the people of the area about the health and hygiene</li>
+                <li>I made the people to know well about sanitization</li>
+                <li>People recived us and participated in all of our activities</li>
+                <li>Vaccination and its uses are explained to illeterates</li>
+                <li>As Prevention Is Better Than Cure i explained the people about various preventive measures</li>
+            </ul>
+            <h3>Our Activities</h3>
+            <ul class="achievements-list">
+                <li>We distributed the hygine kits to the people</li>
+                <li>conducted a sanitization drive in the area</li>
+                <li>Identified the host areas of various diseases and stopped them or sealed them</li>
+                <li>conducted an awarness activity in the local area</li>
+                <li>went to homes and explaines about the various nutrition measures and balanced diet</li>
+            </ul>
+         </div>
+        </div>
+      </section>    
+    
+  </main>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-center">
+        <p>&copy; 2023 Health and Hygiene Resources. All rights reserved.</p>
+        <p>Email: info@example.com</p>
+        <p>Phone: +1 123 456 7890</p>
+      </div>
+    </div>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+   
+  </footer>
+
+<!-- Add the following script at the bottom of the body tag or in a separate JavaScript file -->
+<script>
+  // Get all the "Read More" buttons
+  const readMoreButtons = document.querySelectorAll('.read-more');
+
+  // Get the modal, modal content, and close button
+  const modal = document.querySelector('.modal');
+  const modalContent = modal.querySelector('.modal-content');
+  const closeModalButton = modal.querySelector('.close-modal');
+
+  // Attach click event listeners to each button
+  readMoreButtons.forEach(button => {
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+      const article = this.parentNode;
+      const articleContent = article.querySelector('.content-hide').innerText;
+      const titleContent = article.querySelector('h3').innerText;
+      showModal(articleContent,titleContent);
+    });
+  });
+
+  // Attach click event listener to the close button
+  closeModalButton.addEventListener('click', function() {
+    closeModal();
+  });
+
+  // Function to show the modal
+  function showModal(articleContent,titleContent) {
+    const modalArticleContent = modal.querySelector('.modal-article-content');
+    const modalTileContent = modal.querySelector('.modal-title');
+    modalArticleContent.innerText = articleContent;
+    modalTileContent.innerText = titleContent;
+    modal.style.display = 'block';
+  }
+
+  // Function to close the modal
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+</script>
+</body>
+</html>
