@@ -154,7 +154,14 @@
       flex: 1;
     }
 
+    .img-cont{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .article img {
+      margin: auto;
       max-width: 30%;
       margin-bottom: 10px;
       height: 30%;
@@ -246,6 +253,7 @@
         padding: 20px;
         border-radius: 5px;
         text-align: center;
+        z-index: 5 !important;
       }
     
       .close-modal {
@@ -316,10 +324,17 @@
         max-width: 1200px;
         margin: 0 100px;
       }
+
+      .project-image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+      }
     
       .project-image img {
-        max-width: 100%;
-        height: auto;
+        max-width: 30%;
+        height: 300px;
         border-radius: 8px;
         margin-bottom: 20px;
       }
@@ -407,7 +422,9 @@
     <h2 id="Articles">Latest Articles</h2>
     <div class="a-flex">
     <div class="article">
-        <img src="./e9e038df-2d20-4a96-b5be-0f98503eb212athposter.jpg" alt="Article 1">
+      <div class="img-cont">
+        <img src="./e9e038df-2d20-4a96-b5be-0f98503eb212athposter.jpg"  alt="Article 1">
+      </div>
         <h3>Maintaining Good Health and Hygiene: <span class="bold">Essential Practices for a Better Life</span></h3>
         <p>Health and hygiene play vital roles in our overall well-being. They are interconnected aspects that influence our physical, mental, and social states. By adopting and maintaining good health and hygiene practices, we can significantly improve our quality of life and reduce the risk of various diseases and infections. In this article, we will explore essential practices that promote health and hygiene, empowering you to lead a healthier and happier life.</p>
         <p class="content-hide">
@@ -422,7 +439,9 @@
       </div>
       
       <div class="article">
-        <img src="./th (1).jpeg" alt="Article 2">
+        <div class="img-cont">
+          <img src="./th (1).jpeg" alt="Article 2">
+        </div>
         <h3>Preventing Disease:<span class="bold"> Strategies for a Healthier Tomorrow</span></h3>
         <p>Prevention is the cornerstone of a healthier future. By immunizing, maintaining a healthy diet, engaging in regular physical activity, avoiding tobacco and excessive alcohol consumption, undergoing regular health screenings, managing stress, and practicing safe behaviors, we can significantly reduce the risk of various diseases.</p>
         <p class="content-hide">1.Immunizations: Vaccinations are one of the most powerful tools for disease prevention. They protect against numerous infectious diseases, including measles, polio, influenza, hepatitis, and more. Ensure that you and your family are up to date with recommended immunizations according to the guidelines provided by healthcare professionals and public health authorities. 
@@ -437,7 +456,9 @@
         <a href="#" class="read-more">Read More</a>
       </div>
       <div class="article">
-        <img src="./health-care-nutrition.jpg" alt="Article 2">
+        <div class="img-cont">
+          <img src="./health-care-nutrition.jpg" alt="Article 2">
+        </div>
         <h3>Nourishing Your Body: <span class="bold">The Power of Nutrition for Improved Health</span></h3>
         <p>Nutrition plays a pivotal role in our health and well-being. By embracing a balanced diet, prioritizing fruits and vegetables, choosing whole grains, opting for lean proteins, including healthy fats, and staying hydrated, we can nourish our bodies and reap the benefits of improved health. </p>
         <p class="content-hide">1.Embrace a Balanced Diet:
@@ -539,7 +560,8 @@
           <h2>Our Community Service Project</h2>
           <div class="project-details">
             <div class="project-image">
-              <img src="project-image.jpg" alt="Community Service Project">
+              <img src="./WhatsApp Image 2023-05-16 at 09.57.09sss.jpg" alt="Community Service Project">
+              <img src="./n2-1.jpg" alt="Community Service Project">
             </div>
             <div class="project-description">
                 <p>Week 1.   SURVEY ON HEALTH AND HYGEINE</p>
